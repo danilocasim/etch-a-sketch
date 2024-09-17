@@ -28,7 +28,7 @@ clearBtn.addEventListener("click", () => {
 });
 
 function generateBoxes(numberOfRows) {
-  if (numberOfRows > 100) return;
+  if (numberOfRows > 100) return alert("ERROR! The Grid Capacity only 100");
 
   for (let i = 0; i < numberOfRows; i++) {
     for (let j = 0; j < numberOfRows; j++) {
@@ -60,7 +60,7 @@ function generateRandomColor() {
     return Math.floor(Math.random() * 255) + 1;
   };
 
-  return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+  return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()}, 50%)`;
 }
 
 function colorTheBox(color) {
@@ -69,7 +69,6 @@ function colorTheBox(color) {
   boxes.forEach((box) => {
     box.addEventListener("mouseleave", () => {
       box.style.background = color();
-      console.log(e);
     });
   });
 }

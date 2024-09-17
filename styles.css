@@ -24,6 +24,33 @@ body {
   height: 100dvh;
 }
 
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 10px;
+}
+
+button {
+  padding: 7px 20px;
+  border-radius: 25px;
+  border: 2px solid pink;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: pink;
+  color: white;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
