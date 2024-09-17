@@ -1,7 +1,8 @@
 "use strict";
 
 const gridContainer = document.querySelector("#grid");
-const btnGridSize = document.querySelector("#size");
+const gridSizeBtn = document.querySelector("#size");
+const clearBtn = document.querySelector("#clear");
 
 function main() {
   let numPerRow = +prompt("Size:");
@@ -9,11 +10,19 @@ function main() {
   colorTheBox(generateRandomColor);
 }
 
-btnGridSize.addEventListener("click", () => {
+gridSizeBtn.addEventListener("click", () => {
   let anotherNumPerRow = +prompt("Size: ");
   removeBoxes();
   generateBoxes(anotherNumPerRow);
   colorTheBox(generateRandomColor);
+});
+
+clearBtn.addEventListener("click", () => {
+  const boxes = document.querySelectorAll(".box");
+
+  boxes.forEach((box) => {
+    box.style.background = "white";
+  });
 });
 
 function generateBoxes(numberOfRows) {
