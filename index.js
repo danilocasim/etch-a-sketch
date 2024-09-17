@@ -3,7 +3,12 @@
 const gridContainer = document.querySelector("#grid");
 const btnGridSize = document.querySelector("#size");
 
-let numPerRow = +prompt("Size:");
+function main() {
+  let numPerRow = +prompt("Size:");
+  generateBoxes(numPerRow);
+}
+
+main();
 
 btnGridSize.addEventListener("click", () => {
   let anotherNumPerRow = +prompt("Size: ");
@@ -16,7 +21,6 @@ function generateBoxes(numberOfRows) {
     for (let j = 0; j < numberOfRows; j++) {
       const box = document.createElement("div");
       box.classList = "box";
-      box.style.border = "1px solid brown";
       gridContainer.appendChild(box);
     }
   }
@@ -37,5 +41,3 @@ function removeBoxes() {
     box.remove();
   }
 }
-
-generateBoxes(numPerRow);

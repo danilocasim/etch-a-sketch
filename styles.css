@@ -30,3 +30,8 @@ body {
   width: 500px;
   height: 500px;
 }
+
+.box {
+  border: 1px solid brown;
+  cursor: pointer;
+}
