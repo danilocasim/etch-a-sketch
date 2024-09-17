@@ -8,8 +8,6 @@ function main() {
   generateBoxes(numPerRow);
 }
 
-main();
-
 btnGridSize.addEventListener("click", () => {
   let anotherNumPerRow = +prompt("Size: ");
   removeBoxes();
@@ -43,9 +41,11 @@ function removeBoxes() {
 }
 
 function randomColor() {
-  let randomNum = (num) => {
-    Math.floor(Math.random() * num) + 1;
+  let randomNum = () => {
+    return Math.floor(Math.random() * 255) + 1;
   };
 
-  return `rgb(${randomNum(255)}, ${randomNum(255)}, ${randomNum(255)})`;
+  return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
 }
+
+main();
