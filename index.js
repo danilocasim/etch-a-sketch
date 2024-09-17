@@ -41,3 +41,11 @@ function removeBoxes() {
     box.remove();
   }
 }
+
+function randomColor() {
+  let randomNum = (num) => {
+    Math.floor(Math.random() * num) + 1;
+  };
+
+  return `rgb(${randomNum(255)}, ${randomNum(255)}, ${randomNum(255)})`;
+}
