@@ -32,6 +32,5 @@ body {
 }
 
 .box {
-  border: 1px solid brown;
-  cursor: pointer;
+  border: 1px solid gray;
 }

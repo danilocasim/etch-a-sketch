@@ -6,12 +6,14 @@ const btnGridSize = document.querySelector("#size");
 function main() {
   let numPerRow = +prompt("Size:");
   generateBoxes(numPerRow);
+  colorTheBox(generateRandomColor);
 }
 
 btnGridSize.addEventListener("click", () => {
   let anotherNumPerRow = +prompt("Size: ");
   removeBoxes();
   generateBoxes(anotherNumPerRow);
+  colorTheBox(generateRandomColor);
 });
 
 function generateBoxes(numberOfRows) {
@@ -40,12 +42,23 @@ function removeBoxes() {
   }
 }
 
-function randomColor() {
+function generateRandomColor() {
   let randomNum = () => {
     return Math.floor(Math.random() * 255) + 1;
   };
 
   return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+}
+
+function colorTheBox(color) {
+  const boxes = document.querySelectorAll(".box");
+
+  boxes.forEach((box) => {
+    box.addEventListener("mouseleave", () => {
+      box.style.background = color();
+      console.log(e);
+    });
+  });
 }
 
 main();
