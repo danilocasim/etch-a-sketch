@@ -6,7 +6,9 @@ const clearBtn = document.querySelector("#clear");
 
 function main() {
   let numPerRow = +prompt("Size:");
+
   generateBoxes(numPerRow);
+
   colorTheBox(generateRandomColor);
 }
 
@@ -26,6 +28,8 @@ clearBtn.addEventListener("click", () => {
 });
 
 function generateBoxes(numberOfRows) {
+  if (numberOfRows > 100) return;
+
   for (let i = 0; i < numberOfRows; i++) {
     for (let j = 0; j < numberOfRows; j++) {
       const box = document.createElement("div");
