@@ -2,6 +2,7 @@
 
 const gridContainer = document.querySelector("#grid");
 const gridSizeBtn = document.querySelector("#size");
+const colorSelection = document.querySelector("#color");
 const clearBtn = document.querySelector("#clear");
 
 function main() {
@@ -17,6 +18,11 @@ gridSizeBtn.addEventListener("click", () => {
   removeBoxes();
   generateBoxes(anotherNumPerRow);
   colorTheBox(generateRandomColor);
+});
+
+colorSelection.addEventListener("change", () => {
+  const color = colorSelection.value;
+  colorTheBox(color);
 });
 
 clearBtn.addEventListener("click", () => {
@@ -60,15 +66,19 @@ function generateRandomColor() {
     return Math.floor(Math.random() * 255) + 1;
   };
 
-  return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()})`;
+  return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()}, 0.5)`;
 }
 
 function colorTheBox(color) {
   const boxes = document.querySelectorAll(".box");
 
   boxes.forEach((box) => {
-    box.addEventListener("mouseleave", () => {
-      box.style.background = color();
+    box.addEventListener("mouseleave", (e) => {
+      if (typeof color === "function") {
+        box.style.background = color();
+      } else {
+        box.style.background = color;
+      }
     });
   });
 }
