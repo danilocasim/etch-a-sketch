@@ -84,6 +84,7 @@ function colorTheBox(color) {
         box.style.background = color();
       } else {
         box.style.background = color;
+        box.style.opacity = 0.5;
       }
     });
   });
