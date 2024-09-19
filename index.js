@@ -79,7 +79,7 @@ function colorTheBox(color) {
   const boxes = document.querySelectorAll(".box");
 
   boxes.forEach((box) => {
-    box.addEventListener("mouseleave", (e) => {
+    box.addEventListener("mouseenter", (e) => {
       if (typeof color === "function") {
         box.style.background = color();
       } else {
