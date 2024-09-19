@@ -72,7 +72,7 @@ function generateRandomColor() {
     return Math.floor(Math.random() * 255) + 1;
   };
 
-  return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()}, 0.5)`;
+  return `rgb(${randomNum()}, ${randomNum()}, ${randomNum()}, 0.7)`;
 }
 
 function colorTheBox(color) {
@@ -84,7 +84,7 @@ function colorTheBox(color) {
         box.style.background = color();
       } else {
         box.style.background = color;
-        box.style.opacity = 0.5;
+        box.style.opacity = 0.7;
       }
     });
   });
