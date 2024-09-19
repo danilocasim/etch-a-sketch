@@ -3,6 +3,7 @@
 const gridContainer = document.querySelector("#grid");
 const gridSizeBtn = document.querySelector("#size");
 const colorSelection = document.querySelector("#color");
+const randomBtn = document.querySelector("#random");
 const clearBtn = document.querySelector("#clear");
 
 function main() {
@@ -23,6 +24,11 @@ gridSizeBtn.addEventListener("click", () => {
 colorSelection.addEventListener("change", () => {
   const color = colorSelection.value;
   colorTheBox(color);
+});
+
+randomBtn.addEventListener("click", () => {
+  const boxes = document.querySelectorAll(".box");
+  colorTheBox(generateRandomColor);
 });
 
 clearBtn.addEventListener("click", () => {
