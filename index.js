@@ -1,23 +1,14 @@
 "use strict";
 
 const gridContainer = document.querySelector("#grid");
-const gridSizeBtn = document.querySelector("#size");
+const gridSizeRange = document.querySelector("#gridSize");
 const colorSelection = document.querySelector("#color");
 const randomBtn = document.querySelector("#random");
 const clearBtn = document.querySelector("#clear");
 
-function main() {
-  let numPerRow = +prompt("Size:");
-
-  generateBoxes(numPerRow);
-
-  colorTheBox(generateRandomColor);
-}
-
-gridSizeBtn.addEventListener("click", () => {
-  let anotherNumPerRow = +prompt("Size: ");
+gridSizeRange.addEventListener("change", () => {
   removeBoxes();
-  generateBoxes(anotherNumPerRow);
+  generateBoxes(gridSizeRange.value);
   colorTheBox(generateRandomColor);
 });
 
@@ -27,7 +18,6 @@ colorSelection.addEventListener("change", () => {
 });
 
 randomBtn.addEventListener("click", () => {
-  const boxes = document.querySelectorAll(".box");
   colorTheBox(generateRandomColor);
 });
 
@@ -35,13 +25,11 @@ clearBtn.addEventListener("click", () => {
   const boxes = document.querySelectorAll(".box");
 
   boxes.forEach((box) => {
-    box.style.background = "white";
+    box.style.backgroundColor = "#ffffff";
   });
 });
 
 function generateBoxes(numberOfRows) {
-  if (numberOfRows > 100) return alert("ERROR! The Grid Capacity is only 100");
-
   for (let i = 0; i < numberOfRows; i++) {
     for (let j = 0; j < numberOfRows; j++) {
       const box = document.createElement("div");
@@ -89,5 +77,3 @@ function colorTheBox(color) {
     });
   });
 }
-
-main();
